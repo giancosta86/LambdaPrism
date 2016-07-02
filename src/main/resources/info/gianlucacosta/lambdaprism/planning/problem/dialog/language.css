@@ -1,0 +1,25 @@
+.problemEditor {
+    -fx-font-size: 14pt;
+    -fx-fill: black;
+}
+
+
+.comment {
+	-fx-fill: grey;
+}
+
+
+.keyword {
+    -fx-font-weight: bold;
+    -fx-fill: blue;
+}
+
+
+.constantName {
+    -fx-fill: green;
+}
+
+
+.variableName {
+    -fx-fill: maroon;
+}

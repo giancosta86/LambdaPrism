@@ -1,0 +1,34 @@
+/*
+ * Exam text - 20 February 2014
+ */
+
+//Syntax example
+
+START: crewAt(c), robotAt(b), robotHas(nothing), crewHas(nothing), toolsIn(a), near(a,b), near(b,a), near(b,c), near(c,b), broken(b)
+
+GOAL: fixed(b)
+
+
+ACTION: moveRobot(X, Y)
+PRE: near(X,Y), robotAt(X)
+POST: robotAt(Y), ~robotAt(X)
+
+
+ACTION: moveCrew(X, Y)
+PRE: near(X,Y), crewAt(X)
+POST: crewAt(Y), ~crewAt(X)
+
+
+ACTION: getTools(X)
+PRE: robotAt(X), robotHas(nothing), toolsIn(X)
+POST: robotHas(tools), ~robotHas(nothing)
+
+
+ACTION: give(X, Y)
+PRE: robotAt(X), crewAt(X), robotHas(Y)
+POST: robotHas(nothing), crewHas(Y), ~robotHas(Y)
+
+
+ACTION: fix(X)
+PRE: crewAt(X), broken(X), crewHas(tools)
+POST: fixed(X), ~broken(X)
