@@ -61,7 +61,7 @@ Finally, LambdaPrism is also a standard [OSGi](http://www.slideshare.net/giancos
 
 * [OmniEditor](https://github.com/giancosta86/OmniEditor)
 
-* [Helios-core](https://github.com/giancosta86/Helios-core)
+* [Helios-fx](https://github.com/giancosta86/Helios-fx)
 
 * [Scala](http://scala-lang.org/)
 

@@ -49,7 +49,7 @@ apply plugin: 'info.gianlucacosta.aurora'
 
 group = 'info.gianlucacosta.lambdaprism'
 archivesBaseName = 'lambdaprism'
-version = '1.0'
+version = '2.0'
 
 description = 'Scala OOP-FP pragmatic library for Artificial Intelligence'
 
@@ -62,8 +62,8 @@ dependencies {
     compile 'org.scala-lang:scala-library:2.11.8'
     compile 'org.antlr:antlr4-runtime:4.5.3'
 
-    compile 'info.gianlucacosta.omnieditor:omnieditor:4.0'
-    compile 'info.gianlucacosta.helios:helios-core:3.0'
+    compile 'info.gianlucacosta.omnieditor:omnieditor:5.0'
+    compile 'info.gianlucacosta.helios:helios-fx:5.0'
 
     testCompile 'org.scalatest:scalatest_2.11:2.2.6'
     testRuntime 'org.pegdown:pegdown:1.6.0'
