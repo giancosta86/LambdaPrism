@@ -20,7 +20,24 @@
 
 package info.gianlucacosta.lambdaprism.planning.problem
 
-import info.gianlucacosta.lambdaprism.logic.basic.formulas.{Argument, Literal}
+import info.gianlucacosta.lambdaprism.logic.basic.formulas.{Argument, Literal, Variable}
+
+
+
+object Step {
+  private def formatSignature(actionName: String, arguments: List[Argument]): String = {
+    s"${actionName}${
+      if (arguments.nonEmpty)
+        arguments.mkString(
+          "(",
+          ", ",
+          ")"
+        )
+      else
+        ""
+    }"
+  }
+}
 
 
 /**
@@ -68,7 +85,30 @@ trait Step {
     * Signature - including the action name and the actual step arguments, if any
     */
   lazy val signature: String =
-    s"${action.name}${if (arguments.nonEmpty) arguments.mkString("(", ", ", ")") else ""}"
+    Step.formatSignature(
+      action.name,
+      arguments
+    )
+
+
+  /**
+    * Returns a signature whose variables have been replaced by the given arguments
+    *
+    * @param replacements A Map[Variable, Argument] whose variables will be replaced within the
+    *                     signature. The map can also contain variables not in the signature,
+    *                     as well as only a subset of the signature variables
+    *
+    * @return The signature, after replacing the given variables
+    */
+  def replaceVariablesInSignature(replacements: Map[Variable, Argument]): String =
+    Step.formatSignature(
+      action.name,
+
+      arguments
+        .map(
+          _.replaceVariables(replacements)
+        )
+    )
 
 
   override def toString: String =

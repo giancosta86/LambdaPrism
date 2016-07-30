@@ -49,4 +49,7 @@ object Argument {
   */
 trait Argument extends Term {
   override def replaceVariable(variable: Variable, argument: Argument): Argument
+
+  override def replaceVariables(replacements: Map[Variable, Argument]): Argument =
+    super.replaceVariables(replacements).asInstanceOf[Argument]
 }

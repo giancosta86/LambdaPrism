@@ -20,7 +20,7 @@
 
 package info.gianlucacosta.lambdaprism.planning.problem
 
-import info.gianlucacosta.lambdaprism.logic.basic.formulas.{CompoundFunctor, Constant, Variable}
+import info.gianlucacosta.lambdaprism.logic.basic.formulas.{Argument, CompoundFunctor, Constant, Variable}
 import org.scalatest.{FlatSpec, Matchers}
 
 
@@ -164,6 +164,36 @@ class TestDefaultStep extends FlatSpec with Matchers {
       parameterlessAction.reify()
 
     parameterlessStep.signature should be("op")
+  }
+
+
+  "Replacing variables in the signature of a parameterless action" should "return only the action name" in {
+    val parameterlessAction =
+      MainAction(
+        "op",
+        List(),
+        List(),
+        List()
+      )
+
+
+    val parameterlessStep =
+      parameterlessAction.reify()
+
+    parameterlessStep.replaceVariablesInSignature(
+      Map[Variable, Argument]()
+    ) should be("op")
+  }
+
+
+  "Replacing variables in a signature" should "work correctly also when passing variables not in the signature" in {
+    step.replaceVariablesInSignature(
+      Map(
+        Variable("A") -> Constant("a"),
+        Variable("X") -> Constant("test"),
+        Variable("Z") -> Constant("z")
+      )
+    ) should be("defaultOp(epsilon, test)")
   }
 
 
