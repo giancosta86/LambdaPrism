@@ -23,7 +23,6 @@ package info.gianlucacosta.lambdaprism.planning.problem
 import info.gianlucacosta.lambdaprism.logic.basic.formulas.{Argument, Literal, Variable}
 
 
-
 object Step {
   private def formatSignature(actionName: String, arguments: List[Argument]): String = {
     s"${actionName}${
@@ -97,7 +96,6 @@ trait Step {
     * @param replacements A Map[Variable, Argument] whose variables will be replaced within the
     *                     signature. The map can also contain variables not in the signature,
     *                     as well as only a subset of the signature variables
-    *
     * @return The signature, after replacing the given variables
     */
   def replaceVariablesInSignature(replacements: Map[Variable, Argument]): String =
