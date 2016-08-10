@@ -13,7 +13,7 @@
 
 **LambdaPrism** is an open source Scala library based on both OOP (Object-Oriented Programming) and FP (Functional Programming) to provide a taxonomy for expressing AI concepts, especially in the sectors of pattern matching and planning: it is designed to be part of the new kernel of [GraphsJ](http://gianlucacosta.info/GraphsJ/), a container application for graph algorithms, but it can also be referenced as a standalone library.
 
-Finally... there is more! :ghost: LambdaPrism is first of all a *pragmatic playground* (with no claims of completeness, but still *very* tested) for learning more about functional techniques applied to Artificial Intelligence: list processing, pattern matching, higher-order functions, currying and many more ideas (including ANTLR grammars), always trying to get the best of the OOP and the FP worlds! ^\_\_^
+Finally... there is more! :ghost: LambdaPrism is first of all a *pragmatic playground* (with no claims of completeness, but still *very* tested) for learning more about functional techniques applied to Artificial Intelligence: list processing, pattern matching, higher-order functions, currying, tail recursion and many more ideas (including ANTLR grammars), always trying to get the best of the OOP and the FP worlds! ^\_\_^
 
 
 ## Requirements
@@ -39,8 +39,9 @@ LambdaPrism's root package is **info.gianlucacosta.lambdaprism** and contains th
 
 * **planning.problem.parser**: **ProblemParser** reads a problem from different sources (for now, a Reader and a String). The language for describing a problem is very simple and minimalist - expressed by [this ANTLR grammar](src/main/antlr/PlanningProblem.g4)
 
-
 * **planning.problem.dialog**: **ProblemDialog** is a ScalaFX dialog employing [OmniEditor](https://github.com/giancosta86/OmniEditor) to ask users to input a planning problem. The most straightforward way to use it is **ProblemDialog.askForProblem()**.
+
+* **classification.basic**: its **ClassificationProblem** class (that can also be instantiated via **ClassificationProblemParser**) describes a simple classification problem and provides a *getView()* method to obtain a filtering **ClassificationView** on one of its *attributes*; in turn, such view contains a *createDecisionTree()* method creating a **DecisionTree** - which, in this basic package, only has one level of **DecisionTreeLeaf** leaves.
 
 For further information, the documentation is available in Scaladoc format and can be downloaded from [the library's section in Hephaestus](https://bintray.com/giancosta86/Hephaestus/LambdaPrism). Finally, the full open source code is available on its [GitHub project page](https://github.com/giancosta86/LambdaPrism).
 
@@ -53,6 +54,12 @@ Alternatively, you could download the JAR file from Hephaestus and manually add 
 
 Finally, LambdaPrism is also a standard [OSGi](http://www.slideshare.net/giancosta86/introduction-to-osgi-56290394) bundle which you can employ in your OSGi architectures! ^\_\_^
 
+
+## Special thanks
+
+Special thanks to:
+
+* [Prof.ssa Michela Milano](http://ai.unibo.it/people/MichelaMilano) for her valuable advice and suggestions
 
 
 ## Further references
